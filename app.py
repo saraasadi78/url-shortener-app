@@ -1,7 +1,6 @@
 import pyshorteners
 from tkinter import *
-from tkinter import messagebox
-import webbrowser
+from tkinter import ttk
 
 
 def on_closing():
@@ -10,7 +9,7 @@ def on_closing():
 
 #window GUI
 window=Tk()
-window.geometry("800x300+500+100")
+window.geometry("700x250")
 window.title("URL SHORTNER")
 window.config(bg='#4392F1')
 #window.protocol("WM_DELETE_WINDOW", on_closing)
@@ -41,6 +40,7 @@ filemenu.add_command(label='Exit', command=window.quit)
 helpmenu = Menu(menu)
 menu.add_cascade(label='Help', menu=helpmenu)
 helpmenu.add_command(label='About')
+
 
 def shorting_func():
     if 'http' in entered_url.get() or 'https' in entered_url.get():
@@ -74,10 +74,13 @@ apply_button = Button(window,
 apply_button.place(relx=0.5, rely=0.4)
 
 entered_url.pack()
-
 apply_button.pack()
 
-window.resizable(False, False)
+
+exit_button=Button(window,text="Quit", command=window.destroy)
+exit_button.place(relx=0.9, rely=0.9)
+exit_button.pack()
+
+#window.resizable(False, False)
 
 window.mainloop()
-
